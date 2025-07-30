@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Energy
   - Explosion
+  - ZombiePlasma
   layers:
   - Default
   - TransparentFX
@@ -77,4 +78,7 @@ TagManager:
     locked: 0
   - name: Energy
     uniqueID: 511752537
+    locked: 0
+  - name: GameUI
+    uniqueID: 1318972101
     locked: 0

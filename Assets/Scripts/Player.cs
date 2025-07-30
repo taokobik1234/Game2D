@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float currentHp;
     [SerializeField] private Image hpBar;
+
+    [SerializeField] private GameManager gameManager;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +30,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameManager.PauseGameMenu();
+        }
     }
 
     void MovePlayer()
@@ -73,7 +79,7 @@ public class Player : MonoBehaviour
     }
     public void Die()
     {
-        Destroy(gameObject);
+        gameManager.GameOverMenu();
     }
 
     protected void UpdateHpBar()
