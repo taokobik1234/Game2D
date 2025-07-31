@@ -21,14 +21,7 @@ public class GameManager : MonoBehaviour
         currentEnergy = 0;
         UpdateEnergyBar();
         boss.SetActive(false);
-        if (IsFirstTime())
-        {
-            ShowFirstTimeInstructions();
-        }
-        else
-        {
-            MainMenu();
-        }
+        Time.timeScale = 1f;
     }
 
     private void ShowFirstTimeInstructions()

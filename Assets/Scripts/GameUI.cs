@@ -21,7 +21,7 @@ public class GameUI : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void GameInstruction()
