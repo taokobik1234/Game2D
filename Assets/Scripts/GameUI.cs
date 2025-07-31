@@ -23,4 +23,14 @@ public class GameUI : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void GameInstruction()
+    {
+        gameManager.GameInstruction();
+    }
+
+    public void BackToMainMenu()
+    {
+        gameManager.BackToMainMenu();
+    }
 }

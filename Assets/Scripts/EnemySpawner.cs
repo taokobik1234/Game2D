@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float timeBetweenSpawns = 2f;
+    [SerializeField] private AudioManager audioManager;
     void Start()
     {
         StartCoroutine(SpawnEnemyCoroutine());
@@ -20,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = enemies[Random.Range(0, enemies.Length)];
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(enemy, spawnPoint.position, Quaternion.identity);
+            audioManager.PlayZombieDeadSound();
         }
     }
 
