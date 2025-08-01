@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     {
         currentHp = maxHp;
         UpdateHpBar();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
