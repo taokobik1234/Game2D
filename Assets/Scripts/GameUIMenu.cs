@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SceneManagement;
+
 public class GameUIMenu : MonoBehaviour
 {
     [SerializeField] private GameManagerMenu gameManagerMenu;
+
     public void StartGame()
     {
-        gameManagerMenu.GameLevel();
+        gameManagerMenu.GameLevel(); 
+    }
+
+    public void CharacterSelect() 
+    {
+        gameManagerMenu.CharacterSelect();
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
+
     public void ContinueGame()
     {
         gameManagerMenu.ResumeGame();

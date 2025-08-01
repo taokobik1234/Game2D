@@ -7,6 +7,8 @@ public class CharacterSelector : MonoBehaviour
     public Transform previewSpawnPoint;
     private GameObject currentCharacter;
     private int selectedIndex = 0;
+    [SerializeField] private Transform previewParent;
+
 
     void Start()
     {
@@ -34,6 +36,8 @@ public class CharacterSelector : MonoBehaviour
 
         GameObject prefab = characterPrefabs[index];
         currentCharacter = Instantiate(prefab, previewSpawnPoint.position, Quaternion.identity);
+
+        currentCharacter.transform.SetParent(previewParent, worldPositionStays: true);
 
         //currentCharacter.transform.localScale = Vector3.one;
         currentCharacter.transform.localScale = new Vector3(2f, 2f, 1f);
