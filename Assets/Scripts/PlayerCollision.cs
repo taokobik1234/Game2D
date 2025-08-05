@@ -6,6 +6,14 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AudioManager audioManager;
+    void Start()
+    {
+        if (gameManager == null)
+            gameManager = FindObjectOfType<GameManager>();
+
+        if (audioManager == null)
+            audioManager = FindObjectOfType<AudioManager>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("ZombiePlasma"))

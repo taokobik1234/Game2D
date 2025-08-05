@@ -9,6 +9,8 @@ TagManager:
   - Energy
   - Explosion
   - ZombiePlasma
+  - GameManager
+  - AudioManager
   layers:
   - Default
   - TransparentFX
