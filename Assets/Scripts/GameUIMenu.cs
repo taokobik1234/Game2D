@@ -9,7 +9,15 @@ public class GameUIMenu : MonoBehaviour
 
     public void StartGame()
     {
-        gameManagerMenu.GameLevel(); 
+        if (gameManagerMenu.IsFirstTime())
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("Intro Scene");
+        }
+        else
+        {
+            gameManagerMenu.GameLevel();
+        }      
     }
 
     public void CharacterSelect() 
