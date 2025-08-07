@@ -62,7 +62,7 @@ public class IntroManager : MonoBehaviour
             "Good luck, Agent. Humanity depends on you."
         };
         nextScene = "Level 1";
-        PlayerPrefs.SetInt("GameStarted", 0);
+        PlayerPrefs.SetInt("GameStarted", 1);
         PlayerPrefs.SetInt("HasPlayedBefore", 1);
     }
 
@@ -85,12 +85,13 @@ public class IntroManager : MonoBehaviour
     {
         storyLines = new string[]
         {
-            "Mission Complete! Antidote secured.",
-            "The serum flows through your veins.",
-            "You have the cure to save humanity.",
-            "The zombie outbreak can finally be stopped.",
-            "Agent Phoenix - Mission Accomplished.",
-            "Thank you for playing!"
+            "You found it! The Genesis Antidote!",
+            "The crimson liquid glows with mysterious power...",
+            "This single vial contains humanity's salvation.",
+            "Dr. Chen's research notes: 'One dose reverses the infection.'",
+            "The weight of the world rests in your hands.",
+            "Time to return to civilization and mass-produce the cure!",
+            "Agent Phoenix - The hero humanity needed."
         };
         nextScene = "Main Menu"; // or wherever you want to go
     }
@@ -161,13 +162,13 @@ public class IntroManager : MonoBehaviour
     public static void CompleteLevel1()
     {
         PlayerPrefs.SetInt("Level1Complete", 1);
-        SceneManager.LoadScene("IntroScene"); // Load this intro scene again
+        SceneManager.LoadScene("Intro Scene"); // Load this intro scene again
     }
 
     // Call this when Level 2 is completed  
     public static void CompleteLevel2()
     {
         PlayerPrefs.SetInt("Level2Complete", 1);
-        SceneManager.LoadScene("IntroScene"); // Load this intro scene again
+        SceneManager.LoadScene("Intro Scene"); // Load this intro scene again
     }
 }

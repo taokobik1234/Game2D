@@ -11,6 +11,8 @@ TagManager:
   - ZombiePlasma
   - GameManager
   - AudioManager
+  - Key
+  - Potion
   layers:
   - Default
   - TransparentFX

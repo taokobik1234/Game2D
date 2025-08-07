@@ -6,6 +6,7 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private IntroManager introManager;
     void Start()
     {
         if (gameManager == null)
@@ -13,6 +14,9 @@ public class PlayerCollision : MonoBehaviour
 
         if (audioManager == null)
             audioManager = FindObjectOfType<AudioManager>();
+        if (introManager == null)
+            introManager = FindObjectOfType<IntroManager>();
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,5 +31,16 @@ public class PlayerCollision : MonoBehaviour
             Destroy(collision.gameObject);
             audioManager.PlayEnergySound();
         }
+        else if (collision.CompareTag("Key"))
+        {
+            Destroy(collision.gameObject);
+            IntroManager.CompleteLevel1();
+        }
+        else if (collision.CompareTag("Potion"))
+        {
+            Destroy(collision.gameObject);
+            IntroManager.CompleteLevel2();
+        }
+
     }
 }
