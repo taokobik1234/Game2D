@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 public class GameManager : MonoBehaviour
 {
     public int currentEnergy;
@@ -16,11 +18,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameInstruction;
+
+    public bool isAutoPlay = false;
+    [SerializeField] private TMP_Text autoPlayButtonText;
+    private AutoPlaySystem autoPlaySystem;
+
     void Start()
     {
         currentEnergy = 0;
         UpdateEnergyBar();
         boss.SetActive(false);
+        autoPlayButtonText.text = isAutoPlay ? "AutoPlay: ON" : "AutoPlay: OFF";
         Time.timeScale = 1f;
     }
 
@@ -127,4 +135,25 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 0f;
     }
+
+    public void ToggleAutoPlay()
+    {
+        isAutoPlay = !isAutoPlay;
+        autoPlayButtonText.text = isAutoPlay ? "AutoPlay: ON" : "AutoPlay: OFF";
+
+        if (autoPlaySystem != null)
+        {
+            autoPlaySystem.SetAutoPlay(isAutoPlay);
+        }
+    }
+
+    public void RegisterPlayer(GameObject player)
+    {
+        autoPlaySystem = player.GetComponent<AutoPlaySystem>();
+        if (autoPlaySystem != null)
+        {
+            autoPlaySystem.SetAutoPlay(isAutoPlay);
+        }
+    }
+
 }

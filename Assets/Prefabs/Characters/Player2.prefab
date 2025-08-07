@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4042986753343124128}
   - component: {fileID: 5222010423004067715}
   - component: {fileID: 3016657490947014563}
+  - component: {fileID: 3133603980347591402}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -215,6 +216,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   audioManager: {fileID: 0}
+--- !u!114 &3133603980347591402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3040805665824525610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3dd34b3192e52443978983499c089c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 10
+  attackRange: 5
+  moveSpeed: 3
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &531721335991769871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -379,6 +398,10 @@ PrefabInstance:
     - target: {fileID: 2554499135276776535, guid: 17d4cd6b87baa954e8681ff684bed482, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042409328014861788, guid: 17d4cd6b87baa954e8681ff684bed482, type: 3}
+      propertyPath: maxAmmo
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7042409328014861788, guid: 17d4cd6b87baa954e8681ff684bed482, type: 3}
       propertyPath: ammoText

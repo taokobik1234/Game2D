@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9162313800439247222}
   - component: {fileID: 2857677185323773322}
   - component: {fileID: 3353020789404113538}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ZombiePlasma
   m_TagString: ZombiePlasma
   m_Icon: {fileID: 0}

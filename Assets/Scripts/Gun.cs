@@ -13,6 +13,8 @@ public class Gun : MonoBehaviour
     public int currentAmmo;
     public TextMeshProUGUI ammoText;
     public AudioManager audioManager;
+    public bool isAutoPlayMode = false;
+
     void Start()
     {
         currentAmmo = maxAmmo;
@@ -28,13 +30,17 @@ public class Gun : MonoBehaviour
 
     void RotateGun()
     {
+        if (isAutoPlayMode) return;
+
         if (Input.mousePosition.x < 0 || Input.mousePosition.x > Screen.width || Input.mousePosition.y < 0 || Input.mousePosition.y > Screen.height)
         {
             return;
         }
+
         Vector3 displayment = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float angle = Mathf.Atan2(displayment.y, displayment.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + rotateOffset);
+
         if (angle < -90 || angle > 90)
         {
             transform.localScale = new Vector3(1, 1, 1);
@@ -44,6 +50,7 @@ public class Gun : MonoBehaviour
             transform.localScale = new Vector3(1, -1, 1);
         }
     }
+
 
     void Shoot()
     {
@@ -81,4 +88,34 @@ public class Gun : MonoBehaviour
             }
         }
     }
+
+    public void AutoShoot()
+    {
+        if (Time.timeScale == 0f) return;
+        if (Time.time >= nextShot && currentAmmo > 0)
+        {
+            nextShot = Time.time + shotDelay;
+            Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            currentAmmo--;
+            UpdateAmmoText();
+            audioManager.PlayShootSound();
+        }
+    }
+
+    public void RotateToTarget(Transform target)
+    {
+        if (target == null) return;
+
+        Vector2 direction = -target.position + transform.parent.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + rotateOffset);
+
+        if (angle < -90 || angle > 90)
+            transform.localScale = new Vector3(1, 1, 1);
+        else
+            transform.localScale = new Vector3(1, -1, 1);
+        
+
+    }
+
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8804645719355961147}
   - component: {fileID: 4004967443514304215}
   - component: {fileID: 5106824276212446786}
+  - component: {fileID: 8215813346080910233}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -215,6 +216,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   audioManager: {fileID: 0}
+--- !u!114 &8215813346080910233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105161839614096670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3dd34b3192e52443978983499c089c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 10
+  attackRange: 5
+  moveSpeed: 3
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &4580517109875984177
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +335,7 @@ MonoBehaviour:
   firePos: {fileID: 2163332834760187097}
   bulletPrefab: {fileID: 6829817666950459604, guid: d1ca2f334d55b3646ae6dac81ff65e10, type: 3}
   shotDelay: 0.15
-  maxAmmo: 24
+  maxAmmo: 1000
   currentAmmo: 0
   ammoText: {fileID: 4806409690330200484, guid: 3c730cada81f7f248bddae15a96ed0dd, type: 3}
   audioManager: {fileID: 2698734002465235336, guid: ef5300adc8a1ce647825cc62144b405f, type: 3}
