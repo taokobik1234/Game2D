@@ -6,6 +6,8 @@ public class AutoPlaySystem : MonoBehaviour
 {
     public float detectionRange = 10f;
     public float attackRange = 5f;
+    public float attackRangeMin = 3f; 
+    public float attackRangeMax = 7f; 
     public float moveSpeed = 3f;
     public LayerMask enemyLayer;
 
@@ -31,11 +33,23 @@ public class AutoPlaySystem : MonoBehaviour
         if (targetEnemy != null)
         {
             float distance = Vector2.Distance(transform.position, targetEnemy.position);
+            Vector2 direction = Vector2.zero;
 
-            
-             // Move enemy
-             Vector2 direction = (transform.position - targetEnemy.position).normalized;
-             rb.velocity = direction * moveSpeed;
+            if (distance > attackRangeMax)
+            {
+                direction = (targetEnemy.position - transform.position).normalized;
+            }
+            else if (distance < attackRangeMin)
+            {
+                direction = (transform.position - targetEnemy.position).normalized;
+            }
+            else
+            {
+                direction = Vector2.zero;
+            }
+
+            rb.velocity = direction * moveSpeed;
+
             if (gun != null)
             {
                 gun.RotateToTarget(targetEnemy);
@@ -44,9 +58,10 @@ public class AutoPlaySystem : MonoBehaviour
         }
         else
         {
-            rb.velocity = Vector2.zero; 
+            rb.velocity = Vector2.zero;
         }
     }
+
 
     void FindClosestEnemy()
     {
