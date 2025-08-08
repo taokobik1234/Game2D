@@ -7237,6 +7237,7 @@ MonoBehaviour:
   characterPrefabs:
   - {fileID: 2105161839614096670, guid: 26c7fe6bfb9506043925d2c8782ee133, type: 3}
   - {fileID: 3040805665824525610, guid: c05f6944727fce54fb104ce9661b3702, type: 3}
+  - {fileID: 8853453861200834673, guid: 9f5a3a349e370f146aa267a963a52aa2, type: 3}
   previewSpawnPoint: {fileID: 1028145949}
   previewParent: {fileID: 1866061549}
 --- !u!1 &1940636152

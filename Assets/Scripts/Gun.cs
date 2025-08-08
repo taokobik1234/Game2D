@@ -15,10 +15,15 @@ public class Gun : MonoBehaviour
     public AudioManager audioManager;
     public bool isAutoPlayMode = false;
 
+    [SerializeField] private float defaultDamage = 10f;
+    private float currentDamage;
+
+
     void Start()
     {
         currentAmmo = maxAmmo;
         UpdateAmmoText();
+        currentDamage = defaultDamage;
     }
 
     void Update()
@@ -58,7 +63,8 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && Time.time >= nextShot)
         {
             nextShot = Time.time + shotDelay;
-            Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            bullet.GetComponent<PlayerBullet>().SetDamage(currentDamage);
             currentAmmo--;
             UpdateAmmoText();
             audioManager.PlayShootSound();
@@ -95,7 +101,8 @@ public class Gun : MonoBehaviour
         if (Time.time >= nextShot && currentAmmo > 0)
         {
             nextShot = Time.time + shotDelay;
-            Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            bullet.GetComponent<PlayerBullet>().SetDamage(currentDamage);
             currentAmmo--;
             UpdateAmmoText();
             audioManager.PlayShootSound();
@@ -117,5 +124,19 @@ public class Gun : MonoBehaviour
         
 
     }
+
+    public void BoostDamage(float factor, float duration)
+    {
+        StopAllCoroutines(); 
+        StartCoroutine(DamageBoostCoroutine(factor, duration));
+    }
+
+    private IEnumerator DamageBoostCoroutine(float factor, float duration)
+    {
+        currentDamage = defaultDamage * factor;
+        yield return new WaitForSeconds(duration);
+        currentDamage = defaultDamage;
+    }
+
 
 }
