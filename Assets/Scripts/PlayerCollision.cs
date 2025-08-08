@@ -24,6 +24,7 @@ public class PlayerCollision : MonoBehaviour
         {
             Player player = GetComponent<Player>();
             player.TakeDame(20f);
+            audioManager.PlayDamageMaleSound();
         }
         else if (collision.CompareTag("Energy"))
         {
@@ -40,6 +41,13 @@ public class PlayerCollision : MonoBehaviour
         {
             Destroy(collision.gameObject);
             IntroManager.CompleteLevel2();
+        }
+        else if (collision.CompareTag("HealthItem"))
+        {
+            Player player = GetComponent<Player>();
+            player.Heal(20f);
+            audioManager.PlayHealSound();
+            Destroy(collision.gameObject);
         }
 
     }

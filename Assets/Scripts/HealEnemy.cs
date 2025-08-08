@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealEnemy : Enemy
 {
     [SerializeField] private float healValue = 20f;
+    [SerializeField] private GameObject healItemPrefabs;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,7 +31,7 @@ public class HealEnemy : Enemy
 
     protected override void Die()
     {
-        HealPlayer();
+        Instantiate(healItemPrefabs, transform.position, Quaternion.identity);
         base.Die();
     }
     public void HealPlayer()

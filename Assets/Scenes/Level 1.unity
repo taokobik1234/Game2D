@@ -14052,6 +14052,8 @@ MonoBehaviour:
   reloadClip: {fileID: 8300000, guid: 2c2c9474f57546340a3e79ddfb1bd887, type: 3}
   energyClip: {fileID: 8300000, guid: 80d7ea9f4debffb4c8fadab3bf4ab369, type: 3}
   zombieDeadClip: {fileID: 8300000, guid: 65148db4e2787e64dbf62fd2ca874f17, type: 3}
+  healClip: {fileID: 8300000, guid: afaa75856ef5a174c97a5603604cd271, type: 3}
+  damageMaleClip: {fileID: 8300000, guid: 09ea48dabe0fbd04eb5c0c215ecb0d24, type: 3}
 --- !u!4 &524805575
 Transform:
   m_ObjectHideFlags: 0
@@ -14829,7 +14831,6 @@ MonoBehaviour:
   enemies:
   - {fileID: 2462003354361148368, guid: 7951e7af51d3bf341ab6b33d748f4d05, type: 3}
   - {fileID: 8329928061342826704, guid: 11aab75acce20544494e7f94a8b79bc3, type: 3}
-  - {fileID: 4895065624794246054, guid: ba41b39f175d13a419feebb4aea0324f, type: 3}
   - {fileID: 3119310340829607997, guid: 03b745625fd399c4ebf982cbc342f00c, type: 3}
   spawnPoints:
   - {fileID: 1696809701}

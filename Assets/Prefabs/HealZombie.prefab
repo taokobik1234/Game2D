@@ -200,6 +200,7 @@ MonoBehaviour:
   enterDamage: 10
   stayDamage: 1
   healValue: 20
+  healItemPrefabs: {fileID: 4558907406294771158, guid: d7b3cff55137ab54fbe6dc35f281649c, type: 3}
 --- !u!1001 &3792647858274408646
 PrefabInstance:
   m_ObjectHideFlags: 0
