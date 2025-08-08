@@ -230,10 +230,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 10
   attackRange: 5
+  attackRangeMin: 3
+  attackRangeMax: 5
   moveSpeed: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  trapLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &4580517109875984177
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +344,7 @@ MonoBehaviour:
   currentAmmo: 0
   ammoText: {fileID: 4806409690330200484, guid: 3c730cada81f7f248bddae15a96ed0dd, type: 3}
   audioManager: {fileID: 2698734002465235336, guid: ef5300adc8a1ce647825cc62144b405f, type: 3}
+  isAutoPlayMode: 0
 --- !u!1 &6126690151965818146
 GameObject:
   m_ObjectHideFlags: 0

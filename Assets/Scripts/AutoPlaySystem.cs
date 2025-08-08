@@ -7,14 +7,16 @@ public class AutoPlaySystem : MonoBehaviour
     public float detectionRange = 10f;
     public float attackRange = 5f;
     public float attackRangeMin = 3f; 
-    public float attackRangeMax = 7f; 
+    public float attackRangeMax = 5f; 
     public float moveSpeed = 3f;
     public LayerMask enemyLayer;
+    public LayerMask trapLayer;
 
     private Transform targetEnemy;
     private Gun gun;
     private Rigidbody2D rb;
     private bool isAutoPlay = false;
+    private bool isInTrap = false;
 
     void Start()
     {
@@ -27,14 +29,27 @@ public class AutoPlaySystem : MonoBehaviour
     void Update()
     {
         if (!isAutoPlay) return;
-
+        CheckIfInTrap();
         FindClosestEnemy();
+        Vector2 direction = Vector2.zero;
 
+        if (isInTrap)
+        {
+            if (targetEnemy != null)
+            {
+                direction = (transform.position - targetEnemy.position).normalized;
+            }
+            else
+            {
+                direction = Random.insideUnitCircle.normalized;
+            }
+
+            rb.velocity = direction * moveSpeed;
+            return; 
+        }
         if (targetEnemy != null)
         {
             float distance = Vector2.Distance(transform.position, targetEnemy.position);
-            Vector2 direction = Vector2.zero;
-
             if (distance > attackRangeMax)
             {
                 direction = (targetEnemy.position - transform.position).normalized;
@@ -62,7 +77,11 @@ public class AutoPlaySystem : MonoBehaviour
         }
     }
 
-
+    void CheckIfInTrap()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.2f, trapLayer);
+        isInTrap = hit != null;
+    }
     void FindClosestEnemy()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, detectionRange, enemyLayer);

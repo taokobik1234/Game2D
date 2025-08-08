@@ -230,10 +230,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 10
   attackRange: 5
+  attackRangeMin: 3
+  attackRangeMax: 5
   moveSpeed: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  trapLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1001 &531721335991769871
 PrefabInstance:
   m_ObjectHideFlags: 0
