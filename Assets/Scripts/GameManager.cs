@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameInstruction;
-
+    [SerializeField] private AudioManager audioManager;
     public bool isAutoPlay = false;
     [SerializeField] private TMP_Text autoPlayButtonText;
     private AutoPlaySystem autoPlaySystem;
@@ -30,20 +30,9 @@ public class GameManager : MonoBehaviour
         boss.SetActive(false);
         autoPlayButtonText.text = isAutoPlay ? "AutoPlay: ON" : "AutoPlay: OFF";
         Time.timeScale = 1f;
+        audioManager.PlayDefaultAudio();
     }
 
-    private void ShowFirstTimeInstructions()
-    {
-        gameInstruction.SetActive(true);
-        mainMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        Time.timeScale = 0f;
-    }
-    private bool IsFirstTime()
-    {
-        return PlayerPrefs.GetInt("HasPlayedBefore", 0) == 0;
-    }
 
     public void AddEnergy()
     {
@@ -65,6 +54,7 @@ public class GameManager : MonoBehaviour
         boss.SetActive(true);
         enemySpawner.SetActive(false);
         gameUi.SetActive(false);
+        audioManager.PlayBossAudio();
     }
 
     private void UpdateEnergyBar()

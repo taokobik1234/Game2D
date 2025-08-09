@@ -21,6 +21,11 @@ public class IntroManager : MonoBehaviour
 
     void Start()
     {
+        if (!PlayerPrefs.HasKey("unlockedLevel"))
+        {
+            PlayerPrefs.SetInt("unlockedLevel", 1);
+            PlayerPrefs.Save();
+        }
         // Check which intro to show based on scene or PlayerPrefs
         SetupIntro();
         ShowIntro();
@@ -162,6 +167,7 @@ public class IntroManager : MonoBehaviour
     public static void CompleteLevel1()
     {
         PlayerPrefs.SetInt("Level1Complete", 1);
+        PlayerPrefs.SetInt("unlockedLevel", 2);
         SceneManager.LoadScene("Intro Scene"); // Load this intro scene again
     }
 

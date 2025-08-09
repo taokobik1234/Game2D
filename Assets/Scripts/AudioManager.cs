@@ -5,6 +5,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource effectAudio;
+    [SerializeField] private AudioSource defaultAudio;
+    [SerializeField] private AudioSource bossAudio;
     [SerializeField] private AudioClip shootClip;
     [SerializeField] private AudioClip reloadClip;
     [SerializeField] private AudioClip energyClip;
@@ -40,4 +42,22 @@ public class AudioManager : MonoBehaviour
         effectAudio.PlayOneShot(damageMaleClip);
     }
 
+    public void PlayDefaultAudio()
+    {
+        bossAudio.Stop();
+        defaultAudio.Play();
+    }
+
+    public void PlayBossAudio()
+    {
+        defaultAudio.Stop();
+        bossAudio.Play();
+    }
+
+    public void StopAudioGame()
+    {
+        effectAudio.Stop();
+        bossAudio.Stop();
+        defaultAudio.Stop();
+    }
 }

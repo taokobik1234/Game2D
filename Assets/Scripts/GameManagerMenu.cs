@@ -7,7 +7,6 @@ public class GameManagerMenu : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject gameOverMenu;
-    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameInstruction;
     [SerializeField] private GameObject gameLevel;
     [SerializeField] private GameObject characterSelect;
@@ -27,7 +26,6 @@ public class GameManagerMenu : MonoBehaviour
         gameInstruction.SetActive(true);
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
         characterSelect.SetActive(false); 
         Time.timeScale = 0f;
     }
@@ -41,7 +39,6 @@ public class GameManagerMenu : MonoBehaviour
     {
         mainMenu.SetActive(true);
         gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
         gameInstruction.SetActive(false);
         gameLevel.SetActive(false);
         characterSelect.SetActive(false);
@@ -54,7 +51,6 @@ public class GameManagerMenu : MonoBehaviour
         gameInstruction.SetActive(true);
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
         characterSelect.SetActive(false);
         gameLevel.SetActive(false);
         previewContainer.SetActive(false);
@@ -66,7 +62,6 @@ public class GameManagerMenu : MonoBehaviour
         characterSelect.SetActive(true);
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
         gameInstruction.SetActive(false);
         gameLevel.SetActive(false);
         previewContainer.SetActive(true);
@@ -78,7 +73,6 @@ public class GameManagerMenu : MonoBehaviour
         gameLevel.SetActive(true);
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
         gameInstruction.SetActive(false);
         characterSelect.SetActive(false);
         previewContainer.SetActive(false);
@@ -89,7 +83,6 @@ public class GameManagerMenu : MonoBehaviour
     {
         gameOverMenu.SetActive(true);
         mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
         gameInstruction.SetActive(false);
         characterSelect.SetActive(false); 
         gameLevel.SetActive(false);
@@ -97,21 +90,9 @@ public class GameManagerMenu : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void PauseGameMenu()
-    {
-        pauseMenu.SetActive(true);
-        gameOverMenu.SetActive(false);
-        mainMenu.SetActive(false);
-        gameInstruction.SetActive(false);
-        characterSelect.SetActive(false); 
-        gameLevel.SetActive(false);
-        previewContainer.SetActive(false);
-        Time.timeScale = 0f;
-    }
 
     public void StartGame()
     {
-        pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         mainMenu.SetActive(false);
         gameInstruction.SetActive(false);
@@ -123,7 +104,6 @@ public class GameManagerMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         mainMenu.SetActive(false);
         gameInstruction.SetActive(false);
@@ -137,7 +117,6 @@ public class GameManagerMenu : MonoBehaviour
         gameInstruction.SetActive(false);
         mainMenu.SetActive(true);
         gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
         characterSelect.SetActive(false);
         gameLevel.SetActive(false);
         Time.timeScale = 0f;
