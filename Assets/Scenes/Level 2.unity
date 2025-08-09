@@ -67665,6 +67665,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8684968}
     - target: {fileID: 198744774961903670, guid: 2edcf344dcbb5d84dac4366364a8f4e1, type: 3}
+      propertyPath: energyThreshold
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 198744774961903670, guid: 2edcf344dcbb5d84dac4366364a8f4e1, type: 3}
       propertyPath: gameInstruction
       value: 
       objectReference: {fileID: 287984563}
