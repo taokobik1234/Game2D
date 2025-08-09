@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float timeBetweenSpawns = 2f;
+    [SerializeField] private AudioManager audioManager;
     void Start()
     {
         StartCoroutine(SpawnEnemyCoroutine());
@@ -19,8 +20,25 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSpawns);
             GameObject enemy = enemies[Random.Range(0, enemies.Length)];
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            Instantiate(enemy, spawnPoint.position, Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
+            int enemyLayer = LayerMask.NameToLayer("Enemy");
+
+            SetLayerRecursively(spawnedEnemy, LayerMask.NameToLayer("Enemy"));
+            audioManager.PlayZombieDeadSound();
         }
     }
+
+    private void SetLayerRecursively(GameObject obj, int layer)
+    {
+        if (obj == null) return;
+
+        obj.layer = layer;
+
+        foreach (Transform child in obj.transform)
+        {
+            SetLayerRecursively(child.gameObject, layer);
+        }
+    }
+
 
 }
