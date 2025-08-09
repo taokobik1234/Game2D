@@ -6,7 +6,10 @@
 
 ## Game Introduction
 Agent Phoenix: Genesis Outbreak is a 2D zombie survival game. Players control Agent Phoenix, who is immune to a virus that turned humans into zombies. The goal is to collect energy cores, fight different enemy types, and defeat the boss to save humanity.
-
+![Main Menu](Images/Screenshot 2025-08-09 191105.png)
+![Select Character](Images/Screenshot 2025-08-09 191140.png)
+![Fight enemy](Images/Screenshot 2025-08-09 191221.png)
+![Fight Boss](Images/Screenshot 2025-08-09 191318.png)
 **Game Features:**
 - Top-down 2D shooter
 - Multiple enemy types (Basic, Energy, Heal, Explosion, Boss)
