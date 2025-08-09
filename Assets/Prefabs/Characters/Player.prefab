@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  maxHp: 100
+  maxHp: 300
   currentHp: 0
   hpBar: {fileID: 2858483169046833533}
   gameManager: {fileID: 0}
@@ -216,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   audioManager: {fileID: 0}
+  introManager: {fileID: 0}
 --- !u!114 &8215813346080910233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +240,8 @@ MonoBehaviour:
   trapLayer:
     serializedVersion: 2
     m_Bits: 128
+  trapSafeDistance: 0.5
+  trapDetectRadius: 0.2
 --- !u!1 &4580517109875984177
 GameObject:
   m_ObjectHideFlags: 0

@@ -113,7 +113,7 @@ public class Gun : MonoBehaviour
     {
         if (target == null) return;
 
-        Vector2 direction = -target.position + transform.parent.position;
+        Vector2 direction = transform.position - target.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + rotateOffset);
 
@@ -121,7 +121,7 @@ public class Gun : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         else
             transform.localScale = new Vector3(1, -1, 1);
-        
+
 
     }
 
