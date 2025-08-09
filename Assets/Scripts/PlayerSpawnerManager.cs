@@ -41,6 +41,15 @@ public class PlayerSpawnerManager : MonoBehaviour
         }
 
         GameObject spawnedPlayer = Instantiate(characterPrefabs[selected], spawnPoint.position, Quaternion.identity);
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        AudioManager audioManager = FindObjectOfType<AudioManager>();
+
+        if (gameManager != null)
+        {
+            gameManager.RegisterPlayer(spawnedPlayer);
+        }
+
         Gun gun = spawnedPlayer.GetComponentInChildren<Gun>();
         if (audioManager == null)
         {

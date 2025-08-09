@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6028704200274982412}
   - component: {fileID: 33603245620084057}
   - component: {fileID: 5711673098206233689}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnergyZombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -212,6 +212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HpBar
       objectReference: {fileID: 0}
+    - target: {fileID: 620266795382480405, guid: efc128a4b43a32a4a910d256e350232d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1939243797801380136, guid: efc128a4b43a32a4a910d256e350232d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -291,6 +295,14 @@ PrefabInstance:
     - target: {fileID: 1939243797801380136, guid: efc128a4b43a32a4a910d256e350232d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128410680604767804, guid: efc128a4b43a32a4a910d256e350232d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955666277288929693, guid: efc128a4b43a32a4a910d256e350232d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6389177175494831556, guid: efc128a4b43a32a4a910d256e350232d, type: 3}
       propertyPath: m_Color.b
