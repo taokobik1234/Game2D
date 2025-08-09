@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip reloadClip;
     [SerializeField] private AudioClip energyClip;
     [SerializeField] private AudioClip zombieDeadClip;
+    [SerializeField] private AudioClip healClip;
+    [SerializeField] private AudioClip damageMaleClip;
 
     public void PlayShootSound()
     {
@@ -26,6 +28,16 @@ public class AudioManager : MonoBehaviour
     public void PlayZombieDeadSound()
     {
         effectAudio.PlayOneShot(zombieDeadClip);
+    }
+
+    public void PlayHealSound()
+    {
+        effectAudio.PlayOneShot(healClip);
+    }
+
+    public void PlayDamageMaleSound()
+    {
+        effectAudio.PlayOneShot(damageMaleClip);
     }
 
 }

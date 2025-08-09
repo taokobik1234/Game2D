@@ -12,6 +12,7 @@ public class BossEnemy : Enemy
     [SerializeField] private float hpValue = 100f;
     [SerializeField] private float skillCooldown = 2f;
     private float nextSkillTime = 0f;
+    [SerializeField] private GameObject keyPrefabs;
     protected override void Update()
     {
         base.Update();
@@ -19,6 +20,12 @@ public class BossEnemy : Enemy
         {
             UsingSkill();
         }
+    }
+
+    protected override void Die()
+    {
+        Instantiate(keyPrefabs, transform.position, Quaternion.identity);
+        base.Die();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

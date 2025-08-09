@@ -32,7 +32,7 @@ public class GameManagerMenu : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    private bool IsFirstTime()
+    public bool IsFirstTime()
     {
         return PlayerPrefs.GetInt("HasPlayedBefore", 0) == 0;
     }

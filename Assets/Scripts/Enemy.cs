@@ -20,6 +20,8 @@ public abstract class Enemy : MonoBehaviour
     }
     protected virtual void Update()
     {
+        Debug.Log($"{gameObject.name} - Player found: {player != null}, Distance: {(player != null ? Vector2.Distance(transform.position, player.transform.position) : 0)}");
+
         MoveToPlayer();
     }
     protected void MoveToPlayer()
